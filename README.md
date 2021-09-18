@@ -5,3 +5,4 @@
 
 ##### Classe Tarefa
 - Atributos -> id, type, title, description, status
+- Metodos -> CRUD
