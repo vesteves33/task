@@ -3,6 +3,7 @@ from app import database
 from datetime import datetime
 
 class User(database.Model):
+    __tablename__ = "tb_user"
     id = database.Column(database.Integer, primary_key=True)
     name = database.Column(database.String(80), nullable=False)
     email = database.Column(database.String(120),unique=True, nullable=False)

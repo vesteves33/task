@@ -76,8 +76,10 @@ def updateTask(obj, info, id, title, description):
 def deleteTask(obj, info, id):
     try:
         task = Task.query.get(id)
-        database.session.delete(task)
-        database.session.commit()
+        
+        if task:
+            database.session.delete(task)
+            database.session.commit()
         payload = {
             "success": True,
             "task": task.returnTask()
