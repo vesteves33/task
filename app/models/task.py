@@ -1,18 +1,14 @@
 from app import database
+from datetime import datetime
 
-class Task(database.Model):
+class Task(database.Model):    
     __tablename__ = 'tb_task'
-    
     id = database.Column(database.Integer, primary_key=True)
     title = database.Column(database.String(180), nullable=False)
     description = database.Column(database.String(500), nullable=False)
-    created_at = database.Column(database.Date)
-  
-    def __init__(self, title, description):
-            self.title = title
-            self.description = description 
+    created_at = database.Column(database.DateTime, nullable=False, default=datetime.utcnow)
 
-    def loadTask(self):
+    def returnTask(self):
       return {
           "id": self.id,
           "title": self.title,

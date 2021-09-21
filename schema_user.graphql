@@ -1,0 +1,18 @@
+schema {
+    query: query
+    mutation: Mutation
+}
+
+type Mutation {
+    createUser(): UserResult!
+}
+
+
+type User {
+
+}
+
+type Query {
+    listAllUsers: UsersResults!
+    getUser: UserResult!
+}
