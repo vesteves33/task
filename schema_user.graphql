@@ -5,11 +5,29 @@ schema {
 
 type Mutation {
     createUser(): UserResult!
+    updateUser(id: ID!, title:String, description:String): TaskResult!
+    deleteUser(id: ID!): TaskResult!
 }
 
-
 type User {
+    id: ID!
+    name: String!
+    email: String!
+    cpf: Int!
+    password: String!
+    created_at: String!
+}
 
+type UserResult {
+    success: Boolean!
+    errors: [String]
+    user: User
+}
+
+type UsersResults {
+    success: Boolean!
+    errors: [String]
+    users: [User]
 }
 
 type Query {
