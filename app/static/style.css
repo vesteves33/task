@@ -1,0 +1,52 @@
+:root {
+    --bg-navbar: #3F2566;
+    --primary-color: #fff;
+    --secondary-color: #37B353;
+    --btn-color:#9D5CFF;
+    --display-prop:flex;
+    --border-color:#E6E6E6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+/* Configurações do HEADER E NAVBAR */
+
+.container {
+    background-color: var(--bg-navbar);
+    display: flex;
+    border: 1px solid var(--border-color);
+    vertical-align:top;
+    height: 200px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 26px;
+    color: var(--primary-color);
+    margin: 15px;
+    padding: 15px;
+}
+
+ul li {
+    margin: 10px; 
+}
+
+ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 26px;
+    font-weight: 400;
+    padding: 20px;
+    margin: 15px;
+}
+
+button {
+    background-color: var(--secondary-color);
+    width: 40px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+}
