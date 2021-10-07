@@ -8,15 +8,7 @@ class Task(Resource):
     def get(self):
         print('Hello World!')
 
-    def post(self):
-        return 'Hello World2'
-
-    def put(self):
-        return "Hello world!"
-
-    def delete(self):
-        return 'hellO World!'
-
+    
 
 api.add_resource(Task, '/task/')
 
