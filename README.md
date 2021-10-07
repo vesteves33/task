@@ -6,3 +6,8 @@
 ##### Classe Tarefa
 - Atributos -> id, type, title, description, status
 - Metodos -> CRUD
+
+##### Classe Usuário
+- Atributos -> id, nome, email, cpf, senha
+- Metodos -> CRUD
+

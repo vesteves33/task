@@ -1,38 +1,30 @@
-from sqlalchemy.orm import query
-from app import app, database
-from ariadne import load_schema_from_path, make_executable_schema, graphql_sync, snake_case_fallback_resolvers, ObjectType
-from ariadne.constants import PLAYGROUND_HTML
-from flask import jsonify, request
-from app.controller.taskmanager import createTask, getTask, getAllTasks,  updateTask, deleteTask
+from flask import Flask
+from flask_restful import Api, Resource
 
-query = ObjectType("Query")
-mutation = ObjectType("Mutation")
 
-query.set_field("listAllTasks", getAllTasks)
-query.set_field("getTask", getTask)
-mutation.set_field("createTask", createTask)
-mutation.set_field("updateTask", updateTask)
-mutation.set_field("deleteTask", deleteTask)
 
-type_defs = load_schema_from_path('schema_task.graphql')
-schema = make_executable_schema(type_defs, query, mutation ,snake_case_fallback_resolvers)
 
-@app.route('/graphql', methods=['GET'])
-def graphql_playground():
-    return PLAYGROUND_HTML, 200
+app = Flask(__name__)
+api = Api(app)
 
-@app.route('/graphql', methods=['POST'])
-def graphql_server():
-    data = request.get_json()
-    success, result = graphql_sync(
-        schema,
-        data,
-        context_value=request,
-        debug=app.debug
-    )
+class Task(Resource):
+    def get(self):
+        return 'Hello World!'
 
-    status_code = 200 if success else 400
-    return jsonify(result), status_code
+    def post(self):
+        return 'Hello World2'
+
+    def put(self):
+        return "Hello world!"
+
+    def delete(self):
+        return 'hellO World!'
+
+
+api.add_resource(Task, '/')
+
+
+
 
 
 
