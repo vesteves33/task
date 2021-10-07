@@ -18,7 +18,7 @@ class Task(Resource):
         return 'hellO World!'
 
 
-api.add_resource(Task, '/')
+api.add_resource(Task, '/task')
 
 
 
