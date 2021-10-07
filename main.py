@@ -6,7 +6,7 @@ api = Api(app)
 
 class Task(Resource):
     def get(self):
-        print('Hello World!')
+        return 'Hello World!'
 
     
 
