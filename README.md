@@ -1,6 +1,6 @@
 # Projeto Task
 
-- Objetivo do projeto é desenvolver uma aplicação gerenciadora de tarefas com Flask
+- Objetivo do projeto é criar uma aplicação web com backend sendo um API, usando flask, flask-restful, heroku e github
 
 
 ##### Classe Tarefa
