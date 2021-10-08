@@ -9,7 +9,7 @@ client = MongoClient("mongodb+srv://vitor_admin:bOyjcHBgdWfGxB3e@task-manager-cl
 class Task(Resource):
     def get(self):
         
-        return 'Muito obrigado xuxu, tu é mais braba que nos temos! Bom descanso TMJ s2'
+        return 'Muito obrigado xuxu, tu é a mais braba que nos temos! Bom descanso TMJ s2'
 
     
 
