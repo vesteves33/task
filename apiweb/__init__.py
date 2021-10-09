@@ -8,8 +8,8 @@ app = Flask(__name__)
 api_bp = Blueprint('api',__name__)
 api = Api(api_bp)
 bcrypt = Bcrypt(app)
-#client = MongoClient("mongodb+srv://vitor_admin:bOyjcHBgdWfGxB3e@task-manager-cluster.vqrnk.mongodb.net/task_manager?retryWrites=true&w=majority")
-#database = client.test
+conection = MongoClient("mongodb+srv://vitor_admin:bOyjcHBgdWfGxB3e@task-manager-cluster.vqrnk.mongodb.net/db_taskmanager?retryWrites=true&w=majority")
+database = conection['db_taskmanager']
 
 #rotas da aplicação
 from apiweb import route
