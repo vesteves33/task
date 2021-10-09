@@ -2,10 +2,10 @@
  
 {% block signup %}
 
-<section class="container">
-    <h3>Create your account</h3>
+<section class="container" id="signup">
+    <legend>Create your account</legend>
     
-    <form action="" class="border rounded p-3 mt-2">
+    <form action="/create" method="post" class="border rounded p-3 mt-2">
         <fieldset class="container ">
             <label for="username" class="form-label mt-2">Username</label>
             <input class="form-control" type="text" name="username" id="username">
