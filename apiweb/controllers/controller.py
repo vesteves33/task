@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import render_template, make_response, request
 from werkzeug.utils import redirect
-from apiweb.models.user import User
+from apiweb.models.models import User
 from apiweb import database
 import json
 
