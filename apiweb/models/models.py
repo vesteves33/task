@@ -3,22 +3,22 @@ from datetime import datetime
 
 
 #Aqui estarão as classes que serão representações de tabelas no BD
+def init_db(self):
+    self.create_all()
 
-class Database:
-    def save(self):
-        database.session.add(self)
-        database.session.commit()
+def save(self):
+    database.session.add(self)
+    database.session.commit()
 
-    def listAll(self):
-        database.query.all()
+def listAll(self):
+    database.query.all()
 
-    def listOne(self):
-        database.query.filter_by(self).first()
+def listOne(self):
+    database.query.filter_by(self).first()
 
-    def delete(self):
-        database.session.delete(self)
-        database.session.commit()
-
+def delete(self):
+    database.session.delete(self)
+    database.session.commit()
 
 class User(database.Model):
     __tablename__ = 'tb_user'
@@ -29,7 +29,6 @@ class User(database.Model):
     account = database.relationship('Account', backref='user', lazy=True)
     tasks = database.relationship('Task', backref='user', lazy=True)
     created_at = database.Column(database.DateTime, default=datetime.utcnow)
-    updated_at = database.Column(database.DateTime, default=datetime.timestamp)
 
 class Task(database.Model):
     __tablename__ = 'tb_task'
@@ -39,19 +38,13 @@ class Task(database.Model):
     priority = database.Column(database.String, default="Medium") #Valores do Campo no banco -> ['Very high', 'High', 'Medium', 'Low', 'Very low']
     status = database.Column(database.String, default="Backlog") #Valores do Campo no banco -> ['Backlog', 'In progress', 'Completed']
     created_at = database.Column(database.DateTime, default=datetime.utcnow) 
-    updated_at = database.Column(database.DateTime, default=datetime.timestamp)
-    user_id = database.Column(database.Integer, database.ForeignKey('tb_user.id'), nullable=False)
+    user_id = database.Column(database.Integer, database.ForeignKey('tb_user.id'), nullable=True)
 
 class Account(database.Model):
     __tablename__ = 'tb_account'
     id = database.Column(database.Integer, primary_key=True)
     email = database.Column(database.String(255), unique=True, nullable=False)
-    username = database.Column(database.String(40), unique=True, nullable=False)
     password = database.Column(database.String(16), nullable=False)
     created_at = database.Column(database.DateTime,nullable=False, default=datetime.utcnow)
-    updated_at = database.Column(database.DateTime, nullable=True, default=datetime.timestamp)
     #ForeignKey representando relação da conta com usuário
-    user_id = database.Column(database.Integer, database.ForeignKey('tb_user.id'), nullable=False)
-
-def init_db(self):
-    self.create_all()
+    user_id = database.Column(database.Integer, database.ForeignKey('tb_user.id'), nullable=True)
