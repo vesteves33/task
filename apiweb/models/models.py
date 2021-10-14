@@ -1,3 +1,4 @@
+from sqlalchemy.orm import backref
 from apiweb import database
 from datetime import datetime
 
@@ -26,9 +27,8 @@ class User(database.Model):
     name = database.Column(database.String(40), nullable=True)
     lastName = database.Column(database.String(255), nullable=True)
     cpf = database.Column(database.Integer, unique=True, nullable=True)
-    account = database.relationship('Account', backref='user', lazy=True)
-    tasks = database.relationship('Task', backref='user', lazy=True)
     created_at = database.Column(database.DateTime, default=datetime.utcnow)
+    account_id = database.Column(database.Integer, database.ForeignKey('tb_account.id'), nullable=False)
 
 class Task(database.Model):
     __tablename__ = 'tb_task'
@@ -38,7 +38,7 @@ class Task(database.Model):
     priority = database.Column(database.String, default="Medium") #Valores do Campo no banco -> ['Very high', 'High', 'Medium', 'Low', 'Very low']
     status = database.Column(database.String, default="Backlog") #Valores do Campo no banco -> ['Backlog', 'In progress', 'Completed']
     created_at = database.Column(database.DateTime, default=datetime.utcnow) 
-    user_id = database.Column(database.Integer, database.ForeignKey('tb_user.id'), nullable=True)
+    account_id = database.Column(database.Integer, database.ForeignKey('tb_account.id'), nullable=False)
 
 class Account(database.Model):
     __tablename__ = 'tb_account'
@@ -47,4 +47,5 @@ class Account(database.Model):
     password = database.Column(database.String(16), nullable=False)
     created_at = database.Column(database.DateTime,nullable=False, default=datetime.utcnow)
     #ForeignKey representando relação da conta com usuário
-    user_id = database.Column(database.Integer, database.ForeignKey('tb_user.id'), nullable=True)
+    user = database.relationship('User', backref='account', lazy=True)
+    tasks = database.relationship('Task', backref='account', lazy=True)
