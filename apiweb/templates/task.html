@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block task %}
+
+<section class="container">
+    <form action="/task/" method="post" class="border rounded p-3">
+        {{ createTask.csrf_token }}
+
+        <fieldset class="container">
+            {{ createTask.title.label(class='form-label mt-2')}}
+            {{ createTask.title(class='form-control')}}
+            
+            {{ createTask.description.label(class='form-label mt-2')}}
+            {{ createTask.description(class='form-control ')}}
+
+            {{ createTask.priority.label(class='form-label mt-2')}}
+            {{ createTask.priority(class='form-select')}}
+
+        </fieldset>
+            {{ createTask.task(class='btn btn-primary m-2 mt-2')}}
+
+    </form>
+
+</section>
+
+{% endblock %}
