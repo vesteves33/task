@@ -12,9 +12,9 @@
 ##### Tecnologias utilizadas:
 - Flask 
 - Flask_restful 
-- MongoDB
-- Mongo Engine 
-- GraphQl 
+- Flask-JWT
+- SqlAlchemy
+- Sqlite  
 - Html  
 - Bootstrap
 - Heroku
