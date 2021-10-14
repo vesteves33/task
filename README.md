@@ -19,3 +19,7 @@
 - Bootstrap
 - Heroku
 - Github
+
+
+##### Rotas
+- Toda Rota tera o Prefixo New no nome da classe dentro dos Controllers para evitar conflito de nomes iguais com as classes da Model ou dos Forms

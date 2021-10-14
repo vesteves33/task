@@ -3,11 +3,11 @@ from flask_restful import Api, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from pathlib import Path
-
-
+import hashlib
 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = hashlib.sha256().digest()
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///storage/db_taskmanager.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
