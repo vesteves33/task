@@ -3,20 +3,19 @@
 {% block signup %}
 
 <section class="container" id="signup">
+    
     <legend>Create your account</legend>
     
     <form action="/create" method="post" class="border rounded p-3 mt-2">
+        {{ createAccount.csrf_token }}
         <fieldset class="container ">
-            <label for="username" class="form-label mt-2">Username</label>
-            <input class="form-control" type="text" name="username" id="username">
+            {{ createAccount.email.label(class='form-label mt-2')}}      
+            {{ createAccount.email(class='form-control')}}    
             
-            <label for="email" class="form-label mt-2">E-mail</label>
-            <input class="form-control" type="email" name="email" id="email" placeholder="example@gmail.com">
+            {{ createAccount.password.label(class='form-label mt-2')}}      
+            {{ createAccount.password(class='form-control')}}    
             
-            <label for="password" class="form-label mt-2">Password</label>
-            <input min=6 max=16 class="form-control" type="password" name="password" id="password">
-        
-            <input type="submit"  value="Create" class="btn btn-success my-2">
+            {{ createAccount.create(class='btn btn-success my-2')}}
         </fieldset>
     </form>
 </section>
