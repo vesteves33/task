@@ -6,20 +6,23 @@
     <h3>Login</h3>
     
     <form action="/login" method="post" class="border rounded p-4 mt-2">
+       {{ login.csrf_token }}
+       
         <fieldset class="container ">
-            <label for="login" class="form-label mt-2">Username or Email</label>
-            <input class="form-control" type="text" name="login" id="login">
+            {{ login.email.label(class="form-label mt-2")}}
+            {{ login.email(class="form-control")}}
             
-            <label for="password" class="form-label mt-2">Password</label>
-            <input min=6 max=16 class="form-control" type="password" name="password" id="password">
+            {{ login.password.label(class="form-label mt-2")}}
+            {{ login.password(class="form-control")}}
             
-            <div class="form-check mt-4">
-                <input class="form-check-input" type="checkbox" name="lembrete" id="lembrete">
-                <label class="form-check-label" for="lembrete">Keep me up</label>
+            
+            <div class="form-group mt-4">
+                {{ login.lembrete }}
+                {{ login.lembrete.label(class="form-control-label")}}
             </div>    
         </fieldset>
 
-        <input type="submit" value="Login" class="btn btn-success m-3">
+        {{ login.login(class='btn btn-success m-3')}}
     </form>
 </section>
 
