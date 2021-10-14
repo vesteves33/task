@@ -23,5 +23,7 @@ from apiweb.models.models import init_db
 
 #Criando o banco de dados ao iniciar aplicação com todas as Models inseridas e configuradas
 path = Path.cwd().joinpath('/apiweb/storage/').is_file()
+folder = Path("apiweb/storage/")
+folder.mkdir(parents=True, exist_ok=True)
 if path == False:
     init_db(database)
